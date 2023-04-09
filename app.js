@@ -19,7 +19,7 @@ const userRoute = require('./routes/userRoute');
 const app = express();
 
 //DB CONNECT
-mongoose.connect(process.env.DB);
+mongoose.connect('mongodb+srv://tugceguzle:${process.env.MONGO_PASSWORD}@cluster0.ogaihcr.mongodb.net/?retryWrites=true&w=majority');
 
 //Template engine
 app.set('view engine', 'ejs');
@@ -36,7 +36,7 @@ app.use(
     secret: 'my_keyboard_cat', 
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.DB }),
+    store: MongoStore.create({ mongoUrl:'mongodb+srv://tugceguzle:${process.env.MONGO_PASSWORD}@cluster0.ogaihcr.mongodb.net/?retryWrites=true&w=majority'}),
   })
 );
 app.use(flash());
