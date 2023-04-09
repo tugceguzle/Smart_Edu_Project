@@ -27,7 +27,6 @@ app.set('view engine', 'ejs');
 // Global Variable 
 global.userIN = null;
 
-
 //Middlewares
 app.use(express.static('public'));
 app.use(bodyParser.json());
