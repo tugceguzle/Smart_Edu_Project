@@ -1,1 +1,2 @@
-"# Smart_Edu_Project" 
+# Smart Edu Project
+# https://smartedu-tg.onrender.com/
