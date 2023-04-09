@@ -18,8 +18,10 @@ const userRoute = require('./routes/userRoute');
 
 const app = express();
 
+let MONGO_PASSWORD = process.env.MONGO_PASSWORD
+
 //DB CONNECT
-mongoose.connect('mongodb+srv://tugceguzle:ajgMbHvNCBVTNtgC@cluster0.ogaihcr.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://tugceguzle:${MONGO_PASSWORD}@cluster0.ogaihcr.mongodb.net/?retryWrites=true&w=majority');
 
 //Template engine
 app.set('view engine', 'ejs');
@@ -36,7 +38,7 @@ app.use(
     secret: 'my_keyboard_cat', 
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl:'mongodb+srv://tugceguzle:ajgMbHvNCBVTNtgC@cluster0.ogaihcr.mongodb.net/?retryWrites=true&w=majority'}),
+    store: MongoStore.create({ mongoUrl:'mongodb+srv://tugceguzle:${MONGO_PASSWORD}@cluster0.ogaihcr.mongodb.net/?retryWrites=true&w=majority'}),
   })
 );
 app.use(flash());
