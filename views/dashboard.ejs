@@ -336,6 +336,8 @@
 								</thead>
 								<tbody>
 									<% for (let i=0; i< users.length; i++) { %>
+										<% if (users[i].email !== user.email){ %>
+										
 										<tr>
 											<th scope="row">
 												<%=users[i]._id %>
@@ -354,6 +356,7 @@
 													class="btn btn-danger rounded-0 text-white"><span>DELETE</span></a>
 											</td>
 										</tr>
+										<% } %>
 										<% } %>
 								</tbody>
 							</table>
