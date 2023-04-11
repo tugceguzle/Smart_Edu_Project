@@ -69,7 +69,11 @@ exports.deleteUser = async (req, res) => {
 
     await User.findByIdAndRemove(req.params.id)
     await Course.deleteMany({user:req.params.id})
-
+    if(User.role=="student"){
+      req.session.destroy(() => {
+        res.redirect('/');
+      });
+    }
     res.status(200).redirect('/user/dashboard');
 
   } catch (error) {
@@ -79,3 +83,4 @@ exports.deleteUser = async (req, res) => {
     });
   }
 };
+
